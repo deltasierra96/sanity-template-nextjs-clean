@@ -1,4 +1,4 @@
-import { stegaClean } from "@sanity/client/stega";
+// import { stegaClean } from "@sanity/client/stega";
 import { Image } from "next-sanity/image";
 
 import { urlForImage } from "@/sanity/lib/utils";
@@ -14,7 +14,8 @@ export default function CoverImage(props: CoverImageProps) {
     <Image
       className="rounded-2xl shadow-md transition-shadow object-cover"
       fill={true}
-      alt={stegaClean(source?.alt) || ""}
+      alt=""
+      // alt={stegaClean(source?.alt) || ""}
       src={
         urlForImage(source)
           ?.height(720)

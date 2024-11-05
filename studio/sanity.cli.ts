@@ -1,22 +1,10 @@
-import {defineCliConfig} from 'sanity/cli'
-import {type UserConfig} from 'vite'
+/**
+* This configuration file lets you run `$ sanity [command]` in this folder
+* Go to https://www.sanity.io/docs/cli to learn more.
+**/
+import { defineCliConfig } from 'sanity/cli'
 
-const projectId = process.env.SANITY_STUDIO_PROJECT_ID || 'your-projectID'
-const dataset = process.env.SANITY_STUDIO_DATASET || 'production'
+const projectId = process.env.SANITY_PROJECT_ID
+const dataset = process.env.SANITY_DATASET
 
-export default defineCliConfig({
-  api: {
-    projectId,
-    dataset,
-  },
-  vite(viteConfig: UserConfig): UserConfig {
-    return {
-      ...viteConfig,
-      define: {
-        ...viteConfig.define,
-        // `sanity dev` enables speedy in both development and production, this line restores the default `styled-components` behaviour of only enabling it in production
-        'process.env.SC_DISABLE_SPEEDY': JSON.stringify(process.env.NODE_ENV !== 'production'),
-      },
-    }
-  },
-})
+export default defineCliConfig({ api: { projectId, dataset } })

@@ -1,0 +1,4 @@
+SANITY_STUDIO_PROJECT_ID="9ao3sodn"
+SANITY_STUDIO_DATASET="production"
+SANITY_STUDIO_PREVIEW_URL="" #Optional - defaults to http://localhost:3000
+SANITY_API_VERSION="vX"

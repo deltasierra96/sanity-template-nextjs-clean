@@ -4,6 +4,8 @@ import {visionTool} from '@sanity/vision'
 import {schemaTypes} from './src/schemaTypes'
 import {structure} from './src/structure'
 import {unsplashImageAsset} from 'sanity-plugin-asset-source-unsplash'
+import { apiVersion, dataset, projectId, previewUrl } from "./env";
+
 import {
   presentationTool,
   defineDocuments,
@@ -12,10 +14,7 @@ import {
 } from 'sanity/presentation'
 import {assist} from '@sanity/assist'
 
-const projectId = process.env.SANITY_STUDIO_PROJECT_ID || 'your-projectID'
-const dataset = process.env.SANITY_STUDIO_DATASET || 'production'
 
-const SANITY_STUDIO_PREVIEW_URL = process.env.SANITY_STUDIO_PREVIEW_URL || 'http://localhost:3000'
 
 const homeLocation = {
   title: 'Home',
@@ -45,7 +44,7 @@ export default defineConfig({
   plugins: [
     presentationTool({
       previewUrl: {
-        origin: SANITY_STUDIO_PREVIEW_URL,
+        origin: previewUrl,
         previewMode: {
           enable: '/api/draft-mode/enable',
         },
@@ -107,7 +106,7 @@ export default defineConfig({
     }),
     unsplashImageAsset(),
     assist(),
-    visionTool(),
+    visionTool({ defaultApiVersion: apiVersion }),
   ],
 
   schema: {

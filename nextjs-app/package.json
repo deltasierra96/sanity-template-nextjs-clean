@@ -1,13 +1,19 @@
 {
   "private": true,
   "scripts": {
-    "predev": "npm run typegen",
+    "predev": "pnpm run typegen",
     "dev": "next --turbo",
-    "prebuild": "npm run typegen",
+    "prebuild": "pnpm run typegen",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "typegen": "sanity typegen generate"
+  },
+  "pnpm": {
+    "overrides": {
+      "@types/react": "npm:types-react@19.0.0-rc.1",
+      "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1"
+    }
   },
   "dependencies": {
     "@sanity/image-url": "^1.0.2",
@@ -19,11 +25,11 @@
     "@vercel/speed-insights": "^1.0.12",
     "autoprefixer": "^10.4.20",
     "date-fns": "^3.6.0",
-    "next": "^15.0.1",
+    "next": "^15.0.2",
     "next-sanity": "^9.8.8",
     "postcss": "^8.4.41",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
+    "react": "19.0.0-rc-3208e73e-20240730",
+    "react-dom": "19.0.0-rc-3208e73e-20240730",
     "react-error-boundary": "^4.1.2",
     "sanity": "^3.57.3",
     "sonner": "^1.5.0",
